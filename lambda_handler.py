@@ -1,4 +1,3 @@
-import json
 import logging
 
 # In the case of AWS Lambda, the root logger is used BEFORE our Lambda handler
