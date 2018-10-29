@@ -12,5 +12,4 @@ install:
 
 script:
   - flake8 .
-  - bash travis_scripts/build_docker_image.sh
   - docker-compose up
