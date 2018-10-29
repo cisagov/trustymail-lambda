@@ -32,6 +32,7 @@ deactivate
 ###
 BUILD_DIR=/build
 mkdir -p $BUILD_DIR/bin
+mkdir -p $BUILD_DIR/cache
 
 ###
 # Copy all packages, including any hidden dotfiles.  Also copy the
@@ -40,6 +41,12 @@ mkdir -p $BUILD_DIR/bin
 cp -rT $VENV_DIR/lib/python3.6/site-packages/ $BUILD_DIR
 cp -rT $VENV_DIR/lib64/python3.6/site-packages/ $BUILD_DIR
 cp lambda_handler.py $BUILD_DIR
+
+###
+# Copy in a snapshot of the public suffix list in text form
+###
+wget -q -O $BUILD_DIR/cache/public-suffix-list.txt \
+     https://publicsuffix.org/list/public_suffix_list.dat
 
 ###
 # Zip it all up
