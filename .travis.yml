@@ -1,0 +1,16 @@
+language: python
+sudo: required
+
+services:
+  - docker
+
+python:
+  - '3.6'
+
+install:
+  - pip install --upgrade pip setuptools flake8
+
+script:
+  - flake8 .
+  - bash travis_scripts/build_docker_image.sh
+  - docker-compose up

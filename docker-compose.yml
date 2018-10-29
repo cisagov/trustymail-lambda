@@ -1,0 +1,8 @@
+version: '3.2'
+
+services:
+  build_trustymail_lambda:
+    build: .
+    image: 'dhsncats/build_trustymail_lambda'
+    volumes:
+      - .:/output

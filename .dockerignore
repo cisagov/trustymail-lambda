@@ -1,0 +1,6 @@
+*.md
+bump_version.sh
+docker-compose.yml
+tag.sh
+travis_scripts
+version.txt
