@@ -1,8 +1,6 @@
 import json
 import logging
 
-import dns
-
 from trustymail.trustymail import scan
 
 # In the case of AWS Lambda, the root logger is used BEFORE our Lambda handler
@@ -52,8 +50,8 @@ def handler(event, context):
     timeout = int(body.get('timeout', 5))
     smtp_timeout = int(body.get('smtp_timeout', 5))
     smtp_localhost = body.get('smtp_localhost', None)
-    smtp_ports =  {int(port) for port in
-                   body.get('smtp_ports', DEFAULT_SMTP_PORTS).split(',')}
+    smtp_ports = {int(port) for port in
+                  body.get('smtp_ports', DEFAULT_SMTP_PORTS).split(',')}
     no_smtp_cache = bool(body.get('no_smtp_cache', False))
     scan_types = body.get('scan_types', DEFAULT_SCAN_TYPES)
     dns_hostnames = body.get('dns_hostnames', None)
