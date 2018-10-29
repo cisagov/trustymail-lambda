@@ -1,8 +1,9 @@
 import json
 import logging
-import os
 
-from boto3 import client as boto3_client
+import dns
+
+# from boto3 import client as boto3_client
 
 from trustymail.domain import Domain
 from trustymail.trustymail import mx_scan
@@ -70,13 +71,13 @@ def handler(event, context):
     logging.info('AWS Event was: {}'.format(event))
 
     # Extract some variables from the event dictionary
-    body = json.loads(event['Body'])
-    #domain = body['domain']
+    # body = json.loads(event['Body'])
+    # domain = body['domain']
 
     #
     # Perform the scan
     #
-    
+
     # Our resolver
     #
     # Note that it uses the system configuration in /etc/resolv.conf
@@ -101,12 +102,11 @@ def handler(event, context):
     resolver.timeout = float(30)
     resolver.lifetime = float(30)
     # If the user passed in DNS hostnames to query against then use them
-    if dns_hostnames:
-        resolver.nameservers = [
-            '8.8.8.8',
-            '8.8.4.4'
-        ]
+    resolver.nameservers = [
+        '8.8.8.8',
+        '8.8.4.4'
+    ]
     domain = Domain('dhs.gov', 30, 30, None, {25}, True, ['8.8.8.8', '8.8.4.4'])
     mx_scan(resolver, domain)
-    
+
     # logging.debug('Response from do_it() is {}'.format(returnVal))
