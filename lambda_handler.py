@@ -1,4 +1,4 @@
-import json
+# import json
 import logging
 
 import dns
@@ -82,7 +82,7 @@ def handler(event, context):
     #
     # Note that it uses the system configuration in /etc/resolv.conf
     # if no DNS hostnames are specified.
-    resolver = dns.resolver.Resolver(configure=not dns_hostnames)
+    resolver = dns.resolver.Resolver(configure=False)
     # This is a setting that controls whether we retry DNS servers if
     # we receive a SERVFAIL response from them.  We set this to False
     # because, unless the reason for the SERVFAIL is truly temporary
@@ -106,7 +106,8 @@ def handler(event, context):
         '8.8.8.8',
         '8.8.4.4'
     ]
-    domain = Domain('dhs.gov', 30, 30, None, {25}, True, ['8.8.8.8', '8.8.4.4'])
+    domain = Domain('dhs.gov', 30, 30, None, {25}, True,
+                    ['8.8.8.8', '8.8.4.4'])
     mx_scan(resolver, domain)
 
     # logging.debug('Response from do_it() is {}'.format(returnVal))
