@@ -20,7 +20,7 @@ pip install --upgrade pip setuptools
 ###
 # Install trustymail
 ###
-pip install trustymail==0.6.1
+pip install trustymail==0.6.2
 
 ###
 # Leave the Python virtual environment
