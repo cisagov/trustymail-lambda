@@ -39,8 +39,8 @@ def handler(event, context):
 
     The event parameter is a dictionary containing the following keys
     and value types:
-    * `domain_name` - A string containing the domain to be scanned.
-      For example, "dhs.gov".
+    * domain_name - A string containing the domain to be scanned.  For
+      example, "dhs.gov".
     * timeout - An integer denoting the DNS lookup timeout in seconds.
       If omitted then the default value of 30 is used.
     * smtp_timeout - An integer denoting the SMTP connection timeout
