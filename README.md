@@ -1,15 +1,15 @@
 # trustymail-lambda :postal_horn: :mailbox: #
 
-[![Build Status](https://travis-ci.com/dhs-ncats/trustymail-lambda.svg?branch=develop)](https://travis-ci.com/dhs-ncats/trustymail-lambda)
+[![Build Status](https://travis-ci.com/cisagov/trustymail-lambda.svg?branch=develop)](https://travis-ci.com/cisagov/trustymail-lambda)
 
 `trustymail-lambda` contains code to build an AWS Lambda function that
-utilizes [`trustymail`](https://github.com/dhs-ncats/trustymail) to
+utilizes [`trustymail`](https://github.com/cisagov/trustymail) to
 check domains for email best practices.
 
 ## Example ##
 
 Building the AWS Lambda zip file:
-1. `cd ~/dhs-ncats/trustymail-lambda`
+1. `cd ~/cisagov/trustymail-lambda`
 2. `docker-compose down`
 2. `docker-compose build`
 3. `docker-compose up`
